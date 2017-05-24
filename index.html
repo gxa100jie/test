@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<style type="text/css">
+		body,div,h1,h2,h3,ul,li,p{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			box-sizing: border-box;
+		}
+		a{
+			text-decoration: none;
+			color: rgba(255,255,255,0.8);
+		}
+		ul,li{
+			list-style: none;
+		}
+	/*登入*/
+		#dengru{
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.8);
+			position: fixed;
+			z-index: 999;
+			left:0;
+			transition: 0.5s;
+		}
+		#enroll{
+			padding:50px 50px 40px;
+			width: 400px;
+			margin: 100px auto 0;
+			position: relative;
+			background-color: #fff;
+		}
+		.enroll-top{
+			margin: 15px 0;
+			font-size: 12px;
+			color: #999;
+			cursor: pointer;
+		}
+		.enroll-top i{
+			margin-right: 5px;
+   			color: #ea4c89;: 
+		}
+		#enroll h3{
+			font-size: 18px;
+			margin-bottom: 20px;
+			font-weight: normal;
+		}
+		#enroll p{
+			margin: 10px 0;
+			position: relative;
+		}
+		#enroll-p-input{
+			padding:10px 35px 10px 10px;
+			border: 1px solid #ddd;
+		    width: 100%;
+		    box-sizing: border-box;
+		}
+		#enroll p>span{
+			position: absolute;
+			z-index: 30;
+			right: 7px;
+			color: #999;
+			top: 8px;
+		}
+		.enroll-p{
+			margin-top: 20px;
+			color: #999;
+			font-size: 12px;
+			vertical-align:bottom;
+			line-height: 16px;
+		}
+		.enroll-p>input{
+			margin-right: 3px;
+		}
+		.enroll-p>a{
+			color: #00c3b6;
+			float: right;
+		}
+		.submit{
+			cursor: pointer;
+		    background-color: #00c3b6;
+		    color: #FFF;
+		    border: 0;
+		    padding:10px;
+		    font-size: 14px;
+		    width: 100%;
+		    box-sizing: border-box;
+		}
+		#enroll>form>a{
+			position: absolute;
+			z-index: 30;
+		    right: 25px;
+		    top: 0;
+		    width: 50px;
+		    height: 50px;
+		    border-radius: 0 0 50px 50px;
+		    text-align: center;
+		    line-height: 50px;
+		    background-color: #444;
+		    font-size: 16px;
+		    color: #FFF;
+		}
+		#enroll-botton{
+			border-top: 1px solid rgba(0,0,0,0.1);
+		    margin: 30px -50px auto -50px;
+		    padding: 0 50px;
+		}
+		#enroll-botton>p{
+			margin: 20px 0 10px;
+			font-size: 12px;
+		}
+		#enroll-botton>a{
+			display: inline-block;
+			background-color: #4a9cf8;
+			padding:6px 10px;
+			font-size: 12px;
+			color: #fff;
+		}
+	/*头部导航*/
+		.nav{
+			width: 100%;
+			height: 50px;
+			background-color: rgba(0,0,0,0.5);
+			position: fixed;
+			z-index: 10;
+			left: 0;
+			top: 0;
+		}
+		.nav-box{
+			height: 50px;
+		}
+		.nav-box ul{
+			text-align: justify;
+		}
+		.nav-box>div>ul>li{
+			height: 50px;
+    		display: inline-block;
+    		vertical-align: top;
+    		line-height: 50px;
+    		text-align: center;
+    		padding: 0 10px;
+		}
+		.nav-box>div>ul>li>a{
+			font-size: 14px;
+		}
+		#nav-box-li{
+			background-image: url(img/1.png);
+			width: 150px;
+			margin-right: 40px;
+			background-size: 100%;
+		}
+		#nav-box-li-one{
+			padding: 9px 0;
+			margin-left: 5px;
+			text-align: left;
+			float: right;
+			box-sizing: border-box;
+		}
+		#nav-box-li-one>div{
+			margin-right: 1px;
+			display: inline-block;
+			vertical-align: top;
+			height: 32px;
+			line-height: 32px;
+			font-size: 14px;
+		}
+		#nav-box-li-one>div>a{
+			border-radius: 4px 0 0 4px;
+			display: inline-block;
+			padding: 0 15px;
+			background-color: rgba(255,255,255,0.2);
+		}
+		#nav-box-li-two{
+			position: relative;
+		}
+		.nav-box-ul{
+			width: 100px;
+			background-color: rgba(0,0,0,0.5);
+  			font-size: 12px;
+  			position: absolute;
+  			top: 50px;
+  			left: -30px;
+  			display: none;
+		}
+		.nav-box-ul a{
+			display: block;
+    		height: 32px;
+    		line-height: 32px;
+    		text-align: center;
+		}
+		#nav-box-li-two:hover .nav-box-ul{
+			display: block;
+		}
+		.nav-box-ul a:hover{
+			color: #00c3b6;
+		}
+		.nav-box-ul li:hover{
+			background-color:rgba(0,0,0,0.5);
+		}
+		#nav-box-li-three{
+			float: right;
+		}
+		#text{
+			margin-top: 9px;
+			height: 32px;
+    		position: relative;
+    		border-radius: 5px;
+    		padding-left: 32px;
+    		transition: 0.5s;
+    		/*padding-right: 32px;*/
+    		/*padding: 0 10px 0 30px;*/
+			/*background-color: #fff;*/
+		}
+		.nav-box-form>div>span{
+			height:32px;
+			width: 32px;
+			position: absolute;
+			z-index: 30;
+			top: 0;
+			left: 0;
+			line-height: 32px;
+			color: rgba(125,125,125,0.8);
+			background-color: rgba(0,0,0,0.0);
+		}
+		.nav-box-form>div>input{
+			width: 100%;
+			height: 30px;
+			vertical-align: top;
+			border: none;
+			outline: none;
+			/*background-color: rgba(0,0,0,0.0);*/
+		}
+	/*头部*/
+		.header{
+			height: 250px;
+    		width: 100%;
+    		background-image: url(img/2.png);
+    		background-position: center 0px;
+    		background-size: cover;
+		}
+		.header-box{
+			width: 100%;
+			padding: 120px 0 70px;
+			height: 60px;
+			text-align: center;
+		}
+		.header-box>h1{
+			color: #fff;
+			font-size: 22px;
+			font-weight: normal;
+			margin-bottom: 8px;
+		}
+		.header-box>p{
+			color: #fff;
+			font-size: 12px;
+			display: inline-block;
+			padding: 2px 8px;
+			border-radius: 5px;
+			background-color: rgba(0,0,0,.15);
+		}
+	/*主体*/
+		.main-top{
+			width: 100%;
+			height: 50px;
+			background-color: #e4e4e4;
+		}
+		.main-top-box{
+			height: 49px;
+			border-top: 1px solid #e4e4e4;
+		}
+		.main-top-box>div{
+			margin: 13px 0 13px;
+			height: 21px;
+			overflow: hidden;
+		}
+		.fa-bullhorn{
+			color: #999;
+			margin-right: 20px;
+		}
+		.main-top-box>div>p{
+			display: inline-block;
+			margin-right: 50px;
+		}
+		.main-top-box>div>p>a{
+			color: #999;
+			font-size: 12px;
+		}
+		.main-top-box>div>p>a:hover{
+			color: #00c3b6;
+			text-decoration:underline;
+		}
+		.main-top-box>div>p span{
+			margin-right: 5px;
+			font-size: 12px;
+		}
+
+
+
+
+
+		.main-column{
+			width: 100%;
+		}
+		.main-column-box{
+			padding: 30px 0 30px;
+			font-size: 0;
+		}
+		.column-box-left{
+			width: 50%;
+			display: inline-block;
+		}
+		.column-box-left>div{
+			margin: 0 10px;
+			position: relative;
+			overflow: hidden;
+		}
+		.column-box-left>div>img{
+			width: 100%;
+		}
+		.column-box-left>div>a{
+			display: block;
+			width: 32px;
+    		margin-top: -25px;
+    		height: 50px;
+    		line-height: 50px;
+    		font-size: 16px;
+    		background-color: rgba(0,0,0,0.8);
+    		position: absolute;
+    		z-index: 10;
+    		text-align: center;
+    		transition: 0.5s;
+		}
+		.tubiao-left{
+			top: 50%;left: -32px;
+		}
+		.tubiao-right{
+			top: 50%;right: -32px;
+		}
+		.column-box-left>div:hover .tubiao-left{
+			left: 0px;
+		}
+		.column-box-left>div:hover .tubiao-right{
+			right: 0px;
+		}
+		.main-box{
+			width: 100%;
+			padding: 30px 0;
+			background-color: #f5f5f5;
+		}
+		.main-box-exterior{
+			font-size: 0;
+		}
+		.box-exterior-box{
+			padding-bottom: 30px;
+		}
+		.item{
+			margin: 0 10px;
+			background-color: #fff;
+			position: relative;
+			border: 10px solid #fff;
+			border-bottom: 0px;
+			overflow: hidden;
+		}
+		.item-box{
+			background-color: #000;
+			overflow: hidden;
+		}
+		.item-box img{
+			width: 100%;
+			transition: 0.4s;
+		}
+		.item>h2{
+			padding: 8px 5px;
+			font-size: 12px;
+			font-weight: normal;
+		}
+		.item>h2>a{
+			color: #000;
+		}
+		.item-botton{
+			padding: 8px 5px;
+			border-top: 1px solid #f2f2f2;
+		}
+		.item-botton>p{
+			font-size: 12px;
+			color: #999;
+			display: inline-block;
+		}
+		.item-botton>span{
+			float: right;
+			font-size: 12px;
+			color: #999;
+		}
+		.item-botton i{
+			margin: 0 5px 0 0;
+			font-size: 12px;
+			color: #999;
+		}
+		.item-top{
+			padding: 8px 10px;
+			width: 100%;
+			background-color: #222;
+			position: absolute;
+			z-index: 10;
+			top: -38px;
+			transition: 0.3s;
+		}
+		.item:hover .item-top{
+			top: 0px;
+		}
+		.item:hover .item-box img{
+			transform: translateY(10px);
+			opacity: 0.7;
+		}
+		.item:hover.item>h2>a{
+			color: #00c3b6;
+		}
+		.fa-bookmark{
+			color: #fff;
+			font-size: 12px;
+		}
+		.fa-fire{
+			color: #fff;
+			font-size: 12px;
+			float: right;
+			margin-left: 5px;
+			line-height: 20px;
+		}
+		.item-top>a{
+			font-size: 12px;
+			line-height: 20px;
+		}
+		.item-top>span{
+			font-size: 12px;
+			color: #fff;
+			float: right;
+			line-height: 20px;
+		}
+		.exterior-botton{
+			text-align: center;
+		}
+		.span-top{
+			width: 36px;
+   		 	height: 36px;
+    		line-height: 36px;
+    		border-radius: 4px;
+    		display: inline-block;
+    		margin-bottom: 5px;
+    		vertical-align: top;
+    		color: #b0b0b0;
+    		font-size: 12px;
+    		margin-right: 3px;
+		}
+		.exterior-botton a{
+			font-size: 12px;
+			color: #b0b0b0;
+		}
+		.main-centre{
+			background: url(img/2.jpg) center bottom no-repeat fixed;
+			background-size: 100%;
+   			padding: 5px 0 20px 0;
+		}
+		.main-centre-box{
+			font-size: 0;		
+		}
+		.centre-box-img{
+			width: 25%;
+			display: inline-block;
+			position: relative;
+			overflow: hidden;
+		}
+		.centre-box-img img{
+			width: 100%;
+		}
+		.centre-box-top{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			z-index: 20;
+			top: 0px;
+			left: 0px;
+			background-color: #00c3b6;
+			opacity: 0.0;
+			transition: 0.8s;
+		}
+		.centre-box-img:hover .centre-box-top{
+			opacity: 0.8;
+		}
+		.exterior-botton a:hover{
+			background-color: #00c3b6!important;
+			color: #fff;
+		}
+		.centre-box-tubiao{
+			width: 40px;
+			height: 40px;
+			font-size: 60px;
+			color: #fff;
+			position: absolute;
+			z-index: 30;
+			top: 35%;
+			left: 43%;
+			opacity: 0.0;
+			transition: 0.8s;
+		}
+		.centre-box-img:hover .centre-box-tubiao{
+			opacity: 1;
+			font-size: 45px;
+		}
+		.centre-box-button{
+			width: 100%;
+			padding: 8px 10px;
+			background-color: rgba(0,0,0,0.5);
+			position: absolute;
+			z-index: 22;
+			bottom: -50px;
+			transition: 0.5s;
+		}
+		.centre-box-img:hover .centre-box-button{
+			bottom: 0px;
+		}
+		.centre-box-button a{
+			font-size: 12px;
+		}
+		.centre-box-button p{
+			display: inline-block;
+			font-size: 12px;
+			color: rgba(255,255,255,0.65);
+		}
+		.centre-box-button span{
+			margin-left: 8px;
+			font-size: 12px;
+			color: rgba(255,255,255,0.65);
+			float: right;
+		}
+		.centre-box-button span>a{
+			color: rgba(255,255,255,0.65);		
+		}
+		.centre-box-button i{
+			margin-right: 5px;
+		}
+		.centre-box-tail{
+			width: 100%;
+			text-align: center;
+		}
+		.centre-box-tail a{
+			background-color: #00c3b6;
+			display: inline-block;
+			font-size: 14px;
+			padding: 8px 25px;
+			border-radius: 20px;
+			color: #FFF;
+		 	margin: 30px auto;
+		 	transition: 0.8s;
+		 	/*-webkit-animation:beijing 3s infinite linear;*/
+		}
+		.centre-box-tail a:hover{
+			background-color: #ea4c89;
+		}
+		/*@-webkit-keyframes beijing{
+			0%{
+				background: #00c3b6;
+			}
+			50%{
+				background-color:#800080;
+			}
+			100%{background-color: #ea4c89;}
+		}*/
+		.main-state{
+			padding: 40px 0;
+			font-size: 0;
+		}
+		.main-state-box{
+			width: 33.33%;
+			text-align: center;
+			padding: 0 20px;
+			display: inline-block;
+		}
+		.main-state-box i{
+			width: 100px;
+		    height: 100px;
+		    font-size: 35px;
+		    color: #fff;
+		    line-height: 100px;
+		    display: inline-block;
+		    border-radius: 50%;
+    		background: #00a398;
+		}
+		.main-state-box h2{
+			font-size: 18px;
+			margin: 5px 0 15px;
+			font-weight: normal;
+			color: #00c3b6;
+		}
+		.main-state-box h3{
+			font-size: 12px;
+   			margin-bottom: 10px;
+   			font-weight: normal;
+		}
+		.main-bottom{
+			width: 100%;
+			font-size: 0;
+		}
+		.main-bottom-box{
+			width: 25%;
+			display: inline-block;
+			margin-bottom: 2px;
+		}
+		.main-bottom-box>a{
+			display: block;
+			border-right: 1px solid #FFF;
+		}
+		.main-bottom-box>a>img{
+			width: 100%;
+		}
+	/*底部*/
+		.footer{
+			width: 100%;
+			background-color: #222;
+		}
+		.footer-top{
+			padding-top: 30px;
+			font-size: 0;
+		}
+		.footer-top-box{
+			width: 40%;
+			padding-right: 70px;
+			padding-bottom: 20px;
+			display: inline-block;
+		}
+		.footer-top-box-h3{
+			font-size: 14px;
+		    margin-bottom: 10px;
+		    color: rgba(255,255,255,0.65);
+		    font-weight: normal;
+		}
+		.footer-top-box p{
+			font-size: 12px;
+			font-weight: normal;
+			letter-spacing: 1px;
+    		line-height: 20px;
+    		color:#636363;
+		}
+		.footer-top-ul{
+			width: 10%;
+			padding: 0 30px 20px 0;
+			font-size: 12px;
+			display: inline-block;
+			vertical-align: top;
+		}
+		.footer-top-ul>ul>li{
+			margin-bottom: 5px;
+			font-size: 12px;
+		}
+		.footer-top-ul>ul>li>a{
+			color:#636363;
+		}
+		.footer-top-ul>ul>li>a:hover{
+			text-decoration:underline;
+			color: #777676;
+		}
+		.footer-li-one>a{
+			text-decoration:underline;
+		}
+		.footer-top-right{
+			width: 30%;
+			display: inline-block;
+			padding: 0 30px 20px 0;
+			vertical-align: top;
+			font-size: 12px;
+		}
+		.footer-li-one{
+			margin-bottom: 5px;
+			color:#636363;
+		}
+		.footer-li-one>a{
+			color: rgba(255,255,255,0.55);
+		}
+		.footer-li-two{
+			margin:10px 0 5px;
+		}
+		.footer-li-two-input{
+			width: 155px;
+		    height: 16px;
+		    border: 1px solid #323232;
+		    border-radius: 2px;
+		    background-color: #1c1c1c;
+		    margin: 0 3px 0 0;
+		    padding: 5px;
+		    color: rgba(255,255,255,0.9);
+		}
+		.footer-li-two-input-two{
+			height: 28px;
+			border: 1px solid rgba(255,255,255,0.1);
+    		background-color: #00a398;
+    		border-radius: 2px;
+		    padding: 0 10px;
+		    cursor: pointer;
+		    color: #fff;
+		}
+		.footer-li-three{
+			margin: 20px 0 5px;
+		}
+		.footer-li-three a{
+			margin-right: 5px;
+			text-align: center;
+			background-color: rgba(0,0,0,0.2);
+		    width: 30px;
+		    height: 30px;
+		    border-radius: 5px;
+		    line-height: 30px;
+		    display: inline-block;
+		    font-size: 14px;
+		    color: rgba(255,255,255,0.5);
+		    transition: 1s;
+		}
+		.footer-botton{
+			width: 1260px;
+			margin: auto;
+			border-top: 1px solid rgba(255,255,255,0.065);
+			padding: 15px 0;
+		}
+		.footer-botton p{
+			font-size: 12px;
+			color: rgba(255,255,255,0.65);
+		}
+		.footer-botton a{
+			font-size: 12px;
+			color: #00c3b6;
+		}
+		#tubiao-one:hover{
+			background-color: #79ac21;
+		}
+		#tubiao-two:hover{
+			background-color: #ff664e;
+		}
+		#tubiao-three:hover{
+			background-color: #e05fef;
+		}
+		#tubiao-four:hover{
+			background-color: #00c3f4;
+		}
+		#tubiao-five:hover{
+			background-color: #f39c12;
+		}
+	</style>
+</head>
+<body>
+	<!-- 登入 -->
+	<div id="dengru" style="top:-100%;">
+	   <div id="enroll">
+	   		<form>
+	   			<div class="enroll-top">
+	   				<i class="fa fa-toggle-on"></i>
+	   				切换注册
+	   			</div>
+	   			<h3>登录</h3>
+	   			<p>
+	   				<span><i class="fa fa-user"></i></span>
+	   				<input id="enroll-p-input" placeholder="请输入用户名或邮箱" type="text" name="">
+	   			</p>
+	   			<p>
+	   				<span><i class="fa fa-lock"></i></span>
+	   				<input id="enroll-p-input" placeholder="请输入用户名或邮箱" type="text" name="">
+	   			</p>
+	   			<p class="enroll-p">
+	   				<input type="checkbox" name="">记住我的登录
+	   				<a href="">忘记密码？</a>
+	   			</p>
+	   			<p>
+	   				<input class="submit" type="submit" name="" value="登入">
+	   			</p>
+	   			<a href="">
+	   				<i class="fa fa-times"></i>
+	   			</a>
+	   		</form>
+	   		<div id="enroll-botton">
+	   			<p>您也可以使用第三方帐号登录</p>
+	   			<a href=""><i class="fa fa-qq"></i>QQ帐号登录</a>
+	   		</div>
+	   </div>
+	</div>
+	<!-- 顶部导航栏 -->
+	<div class="nav">
+		<div class="nav-box">
+			<div class="container">
+				<ul>
+					<li id="nav-box-li"></li>
+					<li><a href="">文章</a></li>
+					<li><a href="">欣赏</a></li>
+					<li><a href="">素材</a></li>
+					<li><a href="">兑换</a></li>
+					<li><a href="">活动</a></li>
+					<li><a href="">唯然</a></li>
+					<li id="nav-box-li-two"><a href="">更多</a>
+						<ul class="nav-box-ul">
+							<li><a href="">关于觉唯</a></li>
+							<li><a href="">留言联系</a></li>
+						</ul>
+					</li>
+					<li id="nav-box-li-one">
+						<div id="dianji">
+							<a href="javascript:;">登入</a>
+						</div>
+						<div>
+							<a href="" style="border-radius: 0 4px 4px 0;">注册</a>
+						</div>
+					</li>
+					<li id="nav-box-li-three">
+						<form class="nav-box-form">
+							<div style="width: 32px;" id="text">
+								<span oncancel=""><i class="fa fa-search"></i></span>
+								<input type="text" name="">
+							</div>
+						</form>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 头部 -->
+	<div class="header">
+		<div class="header-box">
+			<h1>热爱生活  享受乐趣</h1>
+			<p>Love life and enjoy the fun.</p>
+		</div>
+	</div>
+	<!-- 主体 -->
+	<div class="main">
+		<div class="main-top">
+			<div class="main-top-box container">
+				<div>
+					<span><i class="fa fa-bullhorn"></i></span>
+					<p><a title="用户中心正式上线" href=""><span>[03-22]</span>用户中心正式上线</a></p>
+					<p><a title="新增个人主页展示，越看越有爱" href=""><span>[12-11]</span>新增个人主页展示，越看越有爱</a></p>
+					<p><a title="觉唯官网新版升级上线" href=""><span>[12-04]</span>觉唯官网新版升级上线</a></p>
+					<p><a title="新增QQ一键登录" href=""><span>[09-01]</span>新增QQ一键登录</a></p>
+					<p><a title="觉唯商城Beta版测试上线" href=""><span>[03-22]</span>觉唯商城Beta版测试上线</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="main-column">
+			<div class="main-column-box container">
+				<div class="column-box-left">
+					<div>
+						<img src="img/1.jpg">
+						<a class="tubiao-left" href="">
+							<i class="fa fa-chevron-left"></i>
+						</a>
+						<a class="tubiao-right" href="">
+							<i class="fa fa-chevron-right"></i>
+						</a>
+					</div>
+				</div>
+				<div class="column-box-left">
+					<div>
+						<img src="img/1.jpg">
+						<a class="tubiao-left" href="">
+							<i class="fa fa-chevron-left"></i>
+						</a>
+						<a class="tubiao-right" href="">
+							<i class="fa fa-chevron-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main-box">
+			<div class="main-box-exterior container">
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/3.png">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/4.png">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/5.jpg">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/5.png">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/6.jpg">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/6.png">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/7.png">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/7.jpg">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/8.png">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/1.gif">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/8.jpg">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="box-exterior-box col-sm-6 col-md-4 col-lg-3">
+					<div class="item">
+						<div class="item-box">
+							<img src="img/2.gif">
+							<div class="item-top">
+								<i class="fa fa-bookmark"></i>
+								<a href="">交互设计</a>
+								<i class="fa fa-fire"></i>
+								<span>307</span>
+							</div>
+						</div>
+						<h2><a href="">学会二维小动画，只需十分钟！</a></h2>
+						<div class="item-botton">
+							<p>一周前</p>
+							<span>
+								<i class="fa fa-comment"></i>0
+							</span>
+							<span style="margin-right: 8px;">
+								<i class="fa fa-heart"></i>1
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="exterior-botton">
+					<span style="background-color:#00c3b6;color: #fff; " class="span-top">1</span>
+					<a style="background-color: #fff;" class="span-top" href="">2</a>
+					<span class="span-top">…</span>
+					<a style="background-color: #fff;" class="span-top" href="">21</a>
+					<a style="background-color: #fff;" class="span-top" href=""><i class="fa fa-chevron-right"></i></a>
+					<span style="width: 50px;" class="span-top">共21页</span>
+					<input style="border:none;height: 34px;text-align: center;width: 50px;" value="1" class="span-top" type="text" name="">
+					<span style="background-color: #fff;" class="span-top"><a href="">GO</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="main-centre">
+			<div class="main-centre-box container">
+				<div class="centre-box-img">
+					<img src="img/3.jpg">
+					<div class="centre-box-top"></div>
+					<div class="centre-box-tubiao">
+						<i class="fa fa-link"></i>
+					</div>
+					<div class="centre-box-button">
+						<div><a href="">龙</a></div>
+						<p>3周前</p>
+						<span><a href=""><i class="fa fa-comment-o"></i>0</a></span>
+						<span><i class="fa fa-eye"></i>147</span>
+						<span><i class="fa fa-eye"></i>0</span>
+					</div>
+				</div>
+				<div class="centre-box-img">
+					<img src="img/9.jpg">
+					<div class="centre-box-top"></div>
+					<div class="centre-box-tubiao">
+						<i class="fa fa-link"></i>
+					</div>
+					<div class="centre-box-button">
+						<div><a href="">紫色记忆</a></div>
+						<p>3周前</p>
+						<span><a href=""><i class="fa fa-comment-o"></i>0</a></span>
+						<span><i class="fa fa-eye"></i>128</span>
+						<span><i class="fa fa-eye"></i>0</span>
+					</div>
+				</div>
+				<div class="centre-box-img">
+					<img src="img/10.jpg">
+					<div class="centre-box-top"></div>
+					<div class="centre-box-tubiao">
+						<i class="fa fa-link"></i>
+					</div>
+					<div class="centre-box-button">
+						<div><a href="">Angela De Bona </a></div>
+						<p>3周前</p>
+						<span><a href=""><i class="fa fa-comment-o"></i>0</a></span>
+						<span><i class="fa fa-eye"></i>112</span>
+						<span><i class="fa fa-eye"></i>0</span>
+					</div>
+				</div>
+				<div class="centre-box-img">
+					<img src="img/11.jpg">
+					<div class="centre-box-top"></div>
+					<div class="centre-box-tubiao">
+						<i class="fa fa-link"></i>
+					</div>
+					<div class="centre-box-button">
+						<div><a href="">欢乐得海豚</a></div>
+						<p>3周前</p>
+						<span><a href=""><i class="fa fa-comment-o"></i>0</a></span>
+						<span><i class="fa fa-eye"></i>119</span>
+						<span><i class="fa fa-eye"></i>0</span>
+					</div>
+				</div>
+				<div class="centre-box-img">
+					<img src="img/12.jpg">
+					<div class="centre-box-top"></div>
+					<div class="centre-box-tubiao">
+						<i class="fa fa-link"></i>
+					</div>
+					<div class="centre-box-button">
+						<div><a href="">谷雨摘新茶，品茗观雨闲闲的一天</a></div>
+						<p>3周前</p>
+						<span><a href=""><i class="fa fa-comment-o"></i>0</a></span>
+						<span><i class="fa fa-eye"></i>108</span>
+						<span><i class="fa fa-eye"></i>0</span>
+					</div>
+				</div>
+				<div class="centre-box-img">
+					<img src="img/13.jpg">
+					<div class="centre-box-top"></div>
+					<div class="centre-box-tubiao">
+						<i class="fa fa-link"></i>
+					</div>
+					<div class="centre-box-button">
+						<div><a href="">壹空</a></div>
+						<p> 2017-03-19</p>
+						<span><a href=""><i class="fa fa-comment-o"></i>0</a></span>
+						<span><i class="fa fa-eye"></i>148</span>
+						<span><i class="fa fa-eye"></i>0</span>
+					</div>
+				</div>
+				<div class="centre-box-img">
+					<img src="img/14.jpg">
+					<div class="centre-box-top"></div>
+					<div class="centre-box-tubiao">
+						<i class="fa fa-link"></i>
+					</div>
+					<div class="centre-box-button">
+						<div><a href="">Four Seasons </a></div>
+						<p>2017-03-19</p>
+						<span><a href=""><i class="fa fa-comment-o"></i>0</a></span>
+						<span><i class="fa fa-eye"></i>171</span>
+						<span><i class="fa fa-eye"></i>0</span>
+					</div>
+				</div>
+				<div class="centre-box-img">
+					<img src="img/15.jpg">
+					<div class="centre-box-top"></div>
+					<div class="centre-box-tubiao">
+						<i class="fa fa-link"></i>
+					</div>
+					<div class="centre-box-button">
+						<div><a href="">时尚搭配</a></div>
+						<p>2017-03-19</p>
+						<span><a href=""><i class="fa fa-comment-o"></i>0</a></span>
+						<span><i class="fa fa-eye"></i>185</span>
+						<span><i class="fa fa-eye"></i>0</span>
+					</div>
+				</div>
+				<div class="centre-box-tail">
+					<a href="">取悦于灵感 - Love Inspiration <i class="fa fa-chevron-circle-right"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="main-state container">
+			<div class="main-state-box">
+				<p>
+					<i class="fa fa-search"></i>
+				</p>
+				<h2>探索发现</h2>
+				<h3>探索创造性的思维，发现引领最新的设计潮流</h3>
+			</div>
+			<div class="main-state-box">
+				<p>
+					<i class="fa fa-user"></i>
+				</p>
+				<h2>用户设计</h2>
+				<h3>探索创造性的思维，发现引领最新的设计潮流</h3>
+			</div>
+			<div class="main-state-box">
+				<p>
+					<i class="fa fa-paper-plane-o"></i>
+				</p>
+				<h2>感情传递</h2>
+				<h3>探索创造性的思维，发现引领最新的设计潮流</h3>
+			</div>
+		</div>
+		<div class="main-bottom">
+			<div class="main-bottom-box">
+				<a href="">
+					<img src="img/4.jpg">
+				</a>
+			</div>
+			<div class="main-bottom-box">
+				<a href="">
+					<img src="img/16.jpg">
+				</a>
+			</div>
+			<div class="main-bottom-box">
+				<a href="">
+					<img src="img/17.jpg">
+				</a>
+			</div>
+			<div class="main-bottom-box">
+				<a href="">
+					<img src="img/18.jpg">
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- 尾部 -->
+	<div class="footer">
+		<div class="footer-top container">
+			<div class="footer-top-box">
+				<h3 class="footer-top-box-h3">觉唯</h3>
+				<p>以用户为中心的设计理念，专注于用户体验设计，拥有国内外最新的设计潮流趋势、独特而美的创意视觉、新颖而灵敏的思维意识、极致而生动的交互体验，更有严谨而通俗的技术教程！</p>
+				<p>唯然是觉唯网的图片分享社区，以记录美丽、分享美好的创意理念，分享高品质创意、艺术、设计、时尚、插画、摄影、唯美类精美图片。</p>
+			</div>
+			<div class="footer-top-ul">
+				<h3 class="footer-top-box-h3">关于</h3>
+				<ul>
+					<li><a href="">关于觉唯</a></li>
+					<li><a href="">留言联系</a></li>
+					<li><a href="">友情链接</a></li>
+					<li><a href="">免责声明</a></li>
+					<li><a href="">网站地图</a></li>
+				</ul>
+			</div>
+			<div class="footer-top-ul">
+				<h3 class="footer-top-box-h3">栏目</h3>
+				<ul>
+					<li><a href="">用户体验</a></li>
+					<li><a href="">素材下载</a></li>
+					<li><a href="">设计欣赏</a></li>
+					<li><a href="">主题商店</a></li>
+					<li><a href="">唯然灵感</a></li>
+				</ul>
+			</div>
+			<div class="footer-top-ul">
+				<h3 class="footer-top-box-h3">友链</h3>
+				<ul>
+					<li><a href="">前端观察</a></li>
+					<li><a href="">设计达人</a></li>
+					<li><a href="">MAKA</a></li>
+				</ul>
+			</div>
+			<div class="footer-top-right">
+				<h3 class="footer-top-box-h3">关注</h3>
+				<ul>
+					<li class="footer-li-one">Email: 
+						<a href="">javin@jiawin.com</a>
+					</li>
+					<li class="footer-li-two">
+						<input class="footer-li-two-input" type="text" name="" placeholder="请输入您的邮箱">
+						<input class="footer-li-two-input-two" type="submit" name="" value="订阅">
+					</li>
+					<li class="footer-li-three">
+						<a id="tubiao-one" href=""><i class="fa fa-weibo"></i></a>
+						<a id="tubiao-two" href=""><i class="fa fa-tencent-weibo"></i></a>
+						<a id="tubiao-three" href=""><i class="fa fa-qq"></i></a>
+						<a id="tubiao-four" href=""><i class="fa fa-rss"></i></a>
+						<a id="tubiao-five" href=""><i class="fa fa-weixin"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-botton">
+			<p>Copyright © 2012-2017 <a href="">觉唯设计</a> Theme by <a href="">Javin zhong</a> All All Rights Reserved. 粤ICP备12073831号-1</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var search= document.getElementById('text');
+		var s= search.style;
+		function demo(dn,ds,dd,dt){
+			if (s.width == dn+"px") {
+   				s.width = ds+"px";
+   				s.paddingRight = dd + "px";
+   				s.backgroundColor = dt;
+   			}
+   		}
+		document.body.onclick = demo(180,32,0,"transparent");
+   		search.onclick = function(){
+   			if (s.width == 32+"px") {
+   					s.width = 180+"px";
+   					s.paddingRight = 10 + "px";
+   					s.backgroundColor = "#fff";
+   			} 
+   			event.stopPropagation();
+   		}
+   		var ser = document.getElementById("dianji");
+   		var nid = document.getElementById("dengru");
+   		ser.onclick = function(e){
+   			if (nid.style.top == "-"+100+"%") {
+   				nid.style.top = 0+"px";
+   			} else {
+   			}
+   			e.stopPropagation();
+   		}
+   		// document.body.onclick = function(){
+   		// 	if (nid.style.top = 0+"px") {
+   		// 		nid.style.top == "-"+100+"%";
+   		// 	}
+   		// }
+	</script>
+</body>
+</html>
